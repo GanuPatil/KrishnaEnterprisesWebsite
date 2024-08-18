@@ -1,5 +1,5 @@
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import img1 from './Images/krishnaenterprises.jpeg'
 
 const navigation = [
@@ -19,47 +19,46 @@ function classNames(...classes) {
 export default function Example() {
     return ( <
         Disclosure as = "nav"
-        className = "bg-gray-800" >
+        className = "bg-gradient-to-r from-gray-700 via-gray-900 to-black" >
         <
         div className = "mx-auto max-w-7xl px-2 sm:px-6 lg:px-8" >
         <
-        div className = "relative flex h-16 items-center justify-between" >
+        div className = "relative flex h-20 items-center justify-between" >
         <
-        div className = "absolute inset-y-0 left-0 flex items-center sm:hidden" > { /* Mobile menu button*/ } <
-        DisclosureButton className = "group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" >
+        div className = "flex flex-1 items-center justify-start sm:items-stretch sm:justify-start" >
         <
-        span className = "absolute -inset-0.5" / >
-        <
-        span className = "sr-only" > Open main menu < /span> <
-        Bars3Icon ariahidden = "true"
-        className = "block h-6 w-6 group-data-[open]:hidden" / >
-        <
-        XMarkIcon ariahidden = "true"
-        className = "hidden h-6 w-6 group-data-[open]:block" / >
-        <
-        /DisclosureButton> <
-        /div> <
-        div className = "flex flex-1 items-center justify-center sm:items-stretch sm:justify-start" >
-        <
-        div className = "flex flex-shrink-0 items-center" >
+        div className = "flex flex-shrink-0 items-center justify-center" >
         <
         img alt = "Your Company"
         src = { img1 }
-        className = "h-12 w-40 rounded-image" /
+        className = "h-12 w-12 rounded-full" /
         >
         <
         /div> <
-        div className = "hidden sm:ml-6 sm:block" >
+        div className = "ml-3" >
         <
-        div className = "flex space-x-4" > {
+        span className = "text-gradient text-1.2xl font-extrabold" > KRISHNA ENTERPRISES < /span> <
+        span className = "block text-white text-xs font-normal leading-tight" > SALES AND SERVICES < /span> <
+        /div>
+
+        <
+        style jsx > { `
+               .text-gradient {
+                background: linear-gradient(90deg, rgba(255,105,135,1) 0%, rgba(255,207,0,1) 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;}
+            ` } < /style> <
+        div className = "hidden sm:ml-auto sm:flex" >
+        <
+        div className = "flex space-x-2 justify-end" > {
             navigation.map((item) => ( <
                 a key = { item.name }
                 href = { item.href }
                 ariacurrent = { item.current ? 'page' : undefined }
                 className = {
                     classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'rounded-md px-3 py-2 text-sm font-medium',
+                        item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                        'rounded-md px-4 py-2 text-lg font-medium transition duration-300',
                     )
                 } >
                 { item.name } <
@@ -69,17 +68,29 @@ export default function Example() {
         /div> <
         /div> <
         /div> <
-        div className = "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0" >
+        div className = "absolute inset-y-0 right-0 flex items-center sm:hidden" > { /* Mobile menu button */ } <
+        DisclosureButton className = "inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" >
         <
-        button type = "button"
-        className = "relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" >
+        span className = "sr-only" > Open main menu < /span> <
+        Bars3Icon className = "block h-6 w-6"
+        ariahidden = "true" / >
         <
-        span className = "absolute -inset-1.5" / >
+        XMarkIcon className = "hidden h-6 w-6"
+        ariahidden = "true" / >
         <
-        span className = "sr-only" > View notifications < /span> { /* <BellIcon ariahidden="true" className="h-6 w-6" /> */ } <
-        /button>
-
-        { /* Profile dropdown */ } <
+        /DisclosureButton> <
+        /div> <
+        div className = "hidden sm:flex sm:items-center sm:space-x-4" > { /* Larger screen menu */ } <
+        DisclosureButton className = "inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" >
+        <
+        span className = "sr-only" > Open main menu < /span> <
+        Bars3Icon className = "block h-6 w-6"
+        ariahidden = "true" / >
+        <
+        XMarkIcon className = "hidden h-6 w-6"
+        ariahidden = "true" / >
+        <
+        /DisclosureButton> <
         /div> <
         /div> <
         /div>
@@ -87,7 +98,7 @@ export default function Example() {
         <
         DisclosurePanel className = "sm:hidden" >
         <
-        div className = "space-y-1 px-2 pb-3 pt-2" > {
+        div className = "space-y-1 px-4 pb-6 pt-4" > {
             navigation.map((item) => ( <
                 DisclosureButton key = { item.name }
                 as = "a"
@@ -95,8 +106,8 @@ export default function Example() {
                 ariacurrent = { item.current ? 'page' : undefined }
                 className = {
                     classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'block rounded-md px-3 py-2 text-base font-medium',
+                        item.current ? 'bg-gray-900 text-white font-bold' : 'hover:text-white font-bold hover:bg-gray-700',
+                        'block rounded-md px-4 py-2 text-base font-medium border border-transparent shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl'
                     )
                 } >
                 { item.name } <
