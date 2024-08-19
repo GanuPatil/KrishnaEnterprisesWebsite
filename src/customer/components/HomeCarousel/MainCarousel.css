@@ -1,0 +1,20 @@
+/* MainCarousel.css */
+
+.carousel-container {
+    width: 150vw;
+    /* 100% of the viewport width */
+    height: 100vh;
+    /* 100% of the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Ensures the content doesn't overflow */
+}
+
+.carousel-img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    /* Ensures the image covers the entire container */
+}

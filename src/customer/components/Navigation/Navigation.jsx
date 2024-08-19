@@ -44,10 +44,10 @@ export default function Example() {
         <
         style jsx > { `
                .text-gradient {
-                background: linear-gradient(90deg, rgba(255,105,135,1) 0%, rgba(255,207,0,1) 100%);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;}
-            ` } < /style> <
+               background: linear-gradient(90deg, rgba(255, 105, 135, 1) 0%, rgba(255, 207, 0, 1) 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+            ` } < /style>
+
+        <
         div className = "hidden sm:ml-auto sm:flex" >
         <
         div className = "flex space-x-2 justify-end" > {
